@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MokaBrownies | Brownies Artesanales en Santa Cruz de la Sierra</title>
+  <meta name="description" content="Descubre los brownies más famosos de Santa Cruz de la Sierra, Bolivia: Moka Oreo, MokaFresa y Moka Chips con dulce de leche. Arma tu selección y cotiza al instante por WhatsApp.">
+  <meta name="theme-color" content="#b45309">
+
+  <!-- DATOS ESTRUCTURADOS SEO LOCAL Y CATÁLOGO (SCHEMA.ORG JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "MokaBrownies",
+    "description": "Repostería artesanal especializada en brownies de chocolate con dulce de leche y toppings premium en Santa Cruz de la Sierra, Bolivia.",
+    "telephone": "+59175747906",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santa Cruz de la Sierra",
+      "addressRegion": "Santa Cruz",
+      "addressCountry": "BO"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Catálogo de Brownies Artesanales MokaBrownies",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Moka Oreo",
+            "description": "Brownie de chocolate húmedo relleno y cubierto con dulce de leche, chispas de chocolate y trozos de galleta Oreo."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "MokaFresa",
+            "description": "Brownie de chocolate intenso con dulce de leche artesanal, chispas de chocolate y frutillas frescas seleccionadas."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Moka Chips",
+            "description": "Brownie de chocolate con abundante dulce de leche, chispas de chocolate y coloridas chispas M&M."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       1. RESET MODERNO Y DESIGN TOKENS (PALETA GASTRONÓMICA WCAG AA)
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Tríada cromática sector gastronomía / repostería con contraste >= 4.5:1 */
+      --primary: #b45309;        /* Ámbar tostado / Caramelo (Contraste 5.02:1 con #fff) */
+      --primary-dark: #78350f;   /* Chocolate tostado profundo */
+      --accent: #c2410c;         /* Naranja fuego accesible (Contraste 5.18:1 con #fff) */
+      --accent-hover: #9a3412;
+      --whatsapp: #15803d;       /* Verde WhatsApp accesible (Contraste 5.13:1 con #fff) */
+      --whatsapp-hover: #166534;
+
+      --bg: #fefce8;             /* Crema cálido vainilla */
+      --surface: #ffffff;        /* Blanco puro para tarjetas */
+      --surface-alt: #fef3c7;    /* Ámbar muy suave para badges y destacados */
+      --text: #1c1917;           /* Carbón cacao (Contraste > 15:1) */
+      --text-muted: #57534e;     /* Gris cálido legible (Contraste 6.7:1) */
+      --border: #e7e5e4;
+
+      /* Escala Tipográfica y Espaciado Fluido mediante clamp() */
+      --font-h1: clamp(1.85rem, 1.8vw + 1.4rem, 3.25rem);
+      --font-h2: clamp(1.5rem, 1.1vw + 1.2rem, 2.25rem);
+      --font-h3: clamp(1.15rem, 0.5vw + 1.05rem, 1.45rem);
+      --font-body: clamp(1rem, 0.25vw + 0.95rem, 1.125rem);
+      --space-section: clamp(2.5rem, 4.5vw + 1.5rem, 5.5rem);
+      --gutter: clamp(1rem, 2vw + 0.5rem, 2rem);
+
+      /* Elevaciones y Transiciones en hilo compositor */
+      --radius-sm: 0.5rem;
+      --radius-md: 0.875rem;
+      --radius-lg: 1.25rem;
+      --shadow-sm: 0 1px 3px rgba(28, 25, 23, 0.08);
+      --shadow-md: 0 6px 16px -4px rgba(28, 25, 23, 0.1), 0 2px 6px -2px rgba(28, 25, 23, 0.06);
+      --shadow-lg: 0 16px 32px -8px rgba(120, 53, 15, 0.16);
+      --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-size: var(--font-body);
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ==========================================================================
+       2. ACCESIBILIDAD Y FOCO VISIBLES (WCAG 2.1/2.2 AA)
+       ========================================================================== */
+    .skip-link {
+      position: absolute;
+      inset-inline-start: 1rem;
+      inset-block-start: -100%;
+      background: var(--primary-dark);
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      z-index: 2000;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      inset-block-start: 1rem;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================================
+       3. LAYOUTS FLUIDOS E INTRÍNSECOS
+       ========================================================================== */
+    .container {
+      width: min(100% - (var(--gutter) * 2), 1200px);
+      margin-inline: auto;
+    }
+
+    section {
+      padding-block: var(--space-section);
+    }
+
+    h1, h2, h3 {
+      line-height: 1.18;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    h1 { font-size: var(--font-h1); }
+    h2 { font-size: var(--font-h2); }
+    h3 { font-size: var(--font-h3); }
+
+    /* ==========================================================================
+       4. BOTONES Y CONTROLES TÁCTILES ACCESIBLES (>= 44x44px)
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      min-width: 48px;
+      padding: 0.75rem 1.35rem;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-whatsapp {
+      background-color: var(--whatsapp);
+      color: #ffffff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--whatsapp-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background-color: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      background-color: var(--surface-alt);
+    }
+
+    .btn-icon {
+      padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    /* ==========================================================================
+       5. HEADER STICKY Y CONTADOR DEL CARRITO DE COTIZACIÓN
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 900;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-block-end: 1px solid var(--border);
+      padding-block: 0.75rem;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 0.65rem;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.25rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      transition: color var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 680px) {
+      .nav-link {
+        display: none;
+      }
+    }
+
+    .cart-trigger {
+      position: relative;
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      border-radius: 999px;
+      padding-inline: 1.15rem;
+    }
+
+    .cart-trigger:hover {
+      background-color: var(--primary);
+    }
+
+    .cart-count-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.65rem;
+      height: 1.65rem;
+      padding-inline: 0.4rem;
+      border-radius: 999px;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    /* ==========================================================================
+       6. HERO SECTION (REGLA DE LOS 3 SEGUNDOS & LCP OPTIMIZADO)
+       ========================================================================== */
+    .hero {
+      padding-block: clamp(2rem, 4vw + 1rem, 4.5rem);
+      background: radial-gradient(circle at top right, #fde68a 0%, transparent 55%),
+                  linear-gradient(180deg, #fffbeb 0%, var(--bg) 100%);
+      border-block-end: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      align-items: center;
+      gap: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background-color: var(--surface-alt);
+      color: var(--primary-dark);
+      border: 1px solid #fcd34d;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-block-end: 1.15rem;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      margin-block-start: 1.1rem;
+      color: var(--text-muted);
+      font-size: clamp(1.05rem, 0.4vw + 0.98rem, 1.22rem);
+      max-width: 54ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-block-start: 1.75rem;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      margin-block-start: 1.75rem;
+      padding-block-start: 1.25rem;
+      border-block-start: 1px solid var(--border);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-artwork-card {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 480 / 380;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .hero-artwork-card svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: calc(var(--radius-lg) - 0.35rem);
+    }
+
+    /* ==========================================================================
+       7. BARRA DE TRANSPARENCIA (MODO COTIZACIÓN SIN COSTOS OCULTOS)
+       ========================================================================== */
+    .quote-banner {
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      padding-block: 1rem;
+    }
+
+    .quote-banner-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .quote-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-weight: 600;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 999px;
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       8. CATÁLOGO INTERACTIVO: BUSCADOR, FILTROS Y CONTAINER QUERIES
+       ========================================================================== */
+    .section-header {
+      text-align: center;
+      max-width: 65ch;
+      margin-inline: auto;
+      margin-block-end: 2.25rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      margin-block-start: 0.65rem;
+    }
+
+    .catalog-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      margin-block-end: 2rem;
+      background-color: var(--surface);
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (min-width: 768px) {
+      .catalog-controls {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .search-wrapper {
+      position: relative;
+      flex: 1;
+      max-width: 420px;
+    }
+
+    .search-icon {
+      position: absolute;
+      inset-inline-start: 0.95rem;
+      inset-block-start: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      min-height: 48px;
+      padding-block: 0.65rem;
+      padding-inline-start: 2.75rem;
+      padding-inline-end: 1rem;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      background-color: var(--bg);
+      transition: border-color var(--transition), background-color var(--transition);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background-color: var(--surface);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-pill {
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 2px solid var(--border);
+      background-color: var(--surface);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .filter-pill:hover {
+      border-color: var(--primary);
+      background-color: var(--surface-alt);
+    }
+
+    .filter-pill[aria-pressed="true"] {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      color: #ffffff;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+      gap: var(--gutter);
+    }
+
+    /* CONTAINER QUERIES OBLIGATORIAS EN TARJETAS */
+    .card-container {
+      container-type: inline-size;
+      container-name: product-card;
+      display: flex;
+    }
+
+    .product-card {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 11;
+      background: linear-gradient(145deg, #fef3c7, #fde68a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-block-end: 1px solid var(--border);
+    }
+
+    .product-media svg {
+      width: 100%;
+      height: 100%;
+      max-height: 190px;
+    }
+
+    .product-tag {
+      position: absolute;
+      inset-block-start: 0.75rem;
+      inset-inline-start: 0.75rem;
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+    }
+
+    .product-body {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+      gap: 1.15rem;
+    }
+
+    @container product-card (min-width: 540px) {
+      .product-card {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+      }
+      .product-media {
+        aspect-ratio: auto;
+        height: 100%;
+        border-block-end: none;
+        border-inline-end: 1px solid var(--border);
+      }
+    }
+
+    .product-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-block-end: 0.5rem;
+    }
+
+    .quote-mode-pill {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--surface-alt);
+      color: var(--primary-dark);
+      border: 1px solid #fcd34d;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.375rem;
+      white-space: nowrap;
+    }
+
+    .product-desc {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    .ingredients-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      list-style: none;
+      margin-block-start: 0.85rem;
+    }
+
+    .ingredient-chip {
+      font-size: 0.8rem;
+      font-weight: 600;
+      background-color: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding-block-start: 0.75rem;
+      border-block-start: 1px solid var(--border);
+    }
+
+    .product-footer .btn {
+      width: 100%;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background-color: var(--surface);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-md);
+      grid-column: 1 / -1;
+    }
+
+    /* ==========================================================================
+       9. SECCIÓN DE COBERTURA LOCAL (SANTA CRUZ DE LA SIERRA, BOLIVIA)
+       ========================================================================== */
+    .local-section {
+      background-color: var(--surface);
+      border-block-start: 1px solid var(--border);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+      gap: var(--gutter);
+    }
+
+    .info-card {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    .info-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background-color: var(--surface-alt);
+      color: var(--primary);
+      margin-block-end: 1rem;
+    }
+
+    .info-card h3 {
+      margin-block-end: 0.45rem;
+      font-size: 1.15rem;
+    }
+
+    .info-card p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    /* ==========================================================================
+       10. SLIDE-OVER CART DRAWER (PANEL DESPLEGABLE DE COTIZACIÓN)
+       ========================================================================== */
+    .cart-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 25, 23, 0.55);
+      backdrop-filter: blur(2px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 250ms ease, visibility 250ms ease;
+    }
+
+    .cart-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      inset-block: 0;
+      inset-inline-end: 0;
+      width: min(100%, 440px);
+      background: var(--surface);
+      box-shadow: -8px 0 30px rgba(0, 0, 0, 0.18);
+      transform: translateX(100%);
+      transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      max-height: 100dvh;
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.15rem 1.35rem;
+      border-block-end: 1px solid var(--border);
+      background-color: var(--bg);
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem 1.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cart-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1rem;
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .cart-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .cart-item-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .cart-item-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background-color: var(--surface);
+      overflow: hidden;
+    }
+
+    .qty-btn {
+      min-width: 44px;
+      min-height: 44px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-btn:hover {
+      background-color: var(--surface-alt);
+    }
+
+    .qty-value {
+      min-width: 2.25rem;
+      text-align: center;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .remove-btn {
+      min-height: 44px;
+      padding-inline: 0.75rem;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: #b91c1c;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      background-color: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .drawer-note-box {
+      margin-block-start: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .drawer-note-box label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .drawer-note-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text);
+      background-color: var(--surface);
+      resize: vertical;
+      min-height: 76px;
+    }
+
+    .drawer-note-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .drawer-footer {
+      padding: 1.15rem 1.35rem;
+      border-block-start: 1px solid var(--border);
+      background-color: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+    }
+
+    .summary-note {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       11. TOAST DE RETROALIMENTACIÓN ACCESIBLE (REEMPLAZA ALERT/CONFIRM)
+       ========================================================================== */
+    .toast-region {
+      position: fixed;
+      inset-block-end: 1.25rem;
+      inset-inline-start: 50%;
+      transform: translateX(-50%) translateY(120%);
+      background-color: var(--text);
+      color: #ffffff;
+      padding: 0.85rem 1.35rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      z-index: 1500;
+      opacity: 0;
+      transition: transform 240ms ease, opacity 240ms ease;
+      pointer-events: none;
+      max-width: calc(100% - 2rem);
+      text-align: center;
+    }
+
+    .toast-region.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       12. FOOTER INSTITUCIONAL
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--text);
+      color: #e7e5e4;
+      padding-block: 2.5rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #ffffff;
+    }
+
+    .footer-meta {
+      font-size: 0.9rem;
+      color: #a8a29e;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#catalogo" class="skip-link">Saltar directamente al catálogo de brownies</a>
+
+  <!-- CABECERA STICKY CON ACCESO DIRECTO AL CARRITO DE COTIZACIÓN -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand" aria-label="MokaBrownies Inicio">
+        <span class="brand-badge" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="4" width="18" height="16" rx="4" fill="#FDE68A" fill-opacity="0.25" stroke="#FFFFFF" stroke-width="2"/>
+            <path d="M3 10C6 12 9 8 12 10C15 12 18 8 21 10" stroke="#FCD34D" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="8" cy="15" r="1.4" fill="#FFFFFF"/>
+            <circle cx="15.5" cy="14.5" r="1.6" fill="#FCD34D"/>
+          </svg>
+        </span>
+        <span>MokaBrownies</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Navegación principal">
+        <a href="#catalogo" class="nav-link">Sabores Famosos</a>
+        <a href="#como-pedir" class="nav-link">Cómo Cotizar</a>
+        <a href="#ubicacion" class="nav-link">Santa Cruz</a>
+        <button
+          type="button"
+          id="openCartBtn"
+          class="btn cart-trigger"
+          aria-controls="cartDrawer"
+          aria-expanded="false"
+          aria-label="Abrir lista de cotización por WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6H21L19 15H8L6 6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M6 6L5 3H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="9" cy="19" r="1.75" fill="currentColor"/>
+            <circle cx="18" cy="19" r="1.75" fill="currentColor"/>
+          </svg>
+          <span>Mi Cotización</span>
+          <span id="headerCartCount" class="cart-count-badge" aria-live="polite">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION CON ILUSTRACIÓN VECTORIAL OPTIMIZADA PARA LCP -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-eyebrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+            </svg>
+            <span>Hechos a mano en Santa Cruz de la Sierra, Bolivia</span>
+          </div>
+
+          <h1 id="hero-heading" class="hero-title">
+            Brownies de chocolate irresistibles con <span>dulce de leche</span> y tus toppings favoritos
+          </h1>
+
+          <p class="hero-subtitle">
+            Elige entre nuestros 3 sabores más famosos —<strong>Moka Oreo</strong>, <strong>MokaFresa</strong> y <strong>Moka Chips</strong>— arma tu pedido en segundos y solicita tu cotización personalizada directamente por WhatsApp.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#catalogo" class="btn btn-accent">
+              <span>Explorar los 3 Sabores</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a
+              id="directWhatsAppHero"
+              href="https://wa.me/59175747906?text=Hola%20MokaBrownies%2C%20quisiera%20consultar%20disponibilidad%20y%20precios%20de%20sus%20brownies%20en%20Santa%20Cruz%20de%20la%20Sierra."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline">
+              <span>Consulta Rápida WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <span class="trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#15803d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Dulce de leche y chispas en cada bocado</span>
+            </span>
+            <span class="trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#15803d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Cotización sin compromiso por WhatsApp</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-artwork-card">
+            <!-- Ilustración SVG Hero con dimensiones explícitas (LCP & CLS = 0) -->
+            <svg width="480" height="380" viewBox="0 0 480 380" fill="none" role="img" aria-label="Ilustración artesanal de los tres brownies famosos de MokaBrownies: Moka Oreo, MokaFresa y Moka Chips">
+              <defs>
+                <linearGradient id="bgGlow" x1="0" y1="0" x2="480" y2="380" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FFFBEB"/>
+                  <stop offset="100%" stop-color="#FDE68A"/>
+                </linearGradient>
+                <linearGradient id="brownieBase" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#5C2D16"/>
+                  <stop offset="100%" stop-color="#3B1A0B"/>
+                </linearGradient>
+                <linearGradient id="dulceDeLeche" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#D97706"/>
+                  <stop offset="100%" stop-color="#92400E"/>
+                </linearGradient>
+              </defs>
+              <rect width="480" height="380" rx="18" fill="url(#bgGlow)"/>
+              <!-- Plato cerámico cálido -->
+              <ellipse cx="240" cy="306" rx="195" ry="36" fill="#E7E5E4"/>
+              <ellipse cx="240" cy="300" rx="182" ry="30" fill="#FFFFFF"/>
+
+              <!-- Brownie Trasero Izquierda (Moka Oreo) -->
+              <g transform="translate(76, 128)">
+                <rect x="0" y="24" width="145" height="115" rx="14" fill="url(#brownieBase)"/>
+                <path d="M0 36C24 52 46 28 72 44C98 60 120 32 145 46V24C145 16 138 10 130 10H15C7 10 0 16 0 24V36Z" fill="url(#dulceDeLeche)"/>
+                <!-- Galleta Oreo -->
+                <circle cx="72" cy="18" r="24" fill="#1C1917"/>
+                <circle cx="72" cy="18" r="18" fill="none" stroke="#57534E" stroke-width="2" stroke-dasharray="3 3"/>
+                <circle cx="38" cy="68" r="6" fill="#291308"/>
+                <circle cx="108" cy="76" r="7" fill="#291308"/>
+              </g>
+
+              <!-- Brownie Trasero Derecha (MokaFresa) -->
+              <g transform="translate(258, 128)">
+                <rect x="0" y="24" width="145" height="115" rx="14" fill="url(#brownieBase)"/>
+                <path d="M0 38C25 26 50 54 75 38C100 22 124 48 145 36V24C145 16 138 10 130 10H15C7 10 0 16 0 24V38Z" fill="url(#dulceDeLeche)"/>
+                <!-- Frutilla Fresca -->
+                <path d="M72 -4C88 -4 96 14 72 34C48 14 56 -4 72 -4Z" fill="#DC2626"/>
+                <path d="M60 -2L72 5L84 -2L78 -9L72 -4L66 -9L60 -2Z" fill="#15803D"/>
+                <circle cx="67" cy="10" r="1.5" fill="#FDE68A"/>
+                <circle cx="77" cy="12" r="1.5" fill="#FDE68A"/>
+                <circle cx="72" cy="20" r="1.5" fill="#FDE68A"/>
+                <circle cx="42" cy="82" r="6.5" fill="#291308"/>
+              </g>
+
+              <!-- Brownie Principal Frontal (Moka Chips con M&M) -->
+              <g transform="translate(154, 168)">
+                <rect x="0" y="22" width="172" height="122" rx="16" fill="#451A03"/>
+                <rect x="0" y="18" width="172" height="118" rx="16" fill="url(#brownieBase)"/>
+                <path d="M0 38C22 58 44 30 68 48C92 66 114 28 140 46C154 56 164 44 172 38V18C172 10 165 4 157 4H15C7 4 0 10 0 18V38Z" fill="url(#dulceDeLeche)"/>
+                <!-- Chispas M&M Coloridas -->
+                <ellipse cx="44" cy="14" rx="11" ry="7" fill="#EF4444"/>
+                <ellipse cx="86" cy="10" rx="11" ry="7" fill="#EAB308"/>
+                <ellipse cx="128" cy="15" rx="11" ry="7" fill="#2563EB"/>
+                <ellipse cx="66" cy="24" rx="10" ry="6.5" fill="#16A34A"/>
+                <ellipse cx="110" cy="25" rx="10" ry="6.5" fill="#F97316"/>
+                <!-- Chispas de chocolate -->
+                <circle cx="38" cy="76" r="7" fill="#1C1917"/>
+                <circle cx="92" cy="88" r="8" fill="#1C1917"/>
+                <circle cx="136" cy="72" r="6.5" fill="#1C1917"/>
+              </g>
+
+              <!-- Etiqueta Inferior -->
+              <rect x="135" y="326" width="210" height="32" rx="16" fill="#78350F"/>
+              <text x="240" y="347" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">
+                3 Sabores Estrella • MokaBrownies
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRA DE FLUJO TRANSPARENTE (CRO - CLARIDAD TOTAL) -->
+    <div id="como-pedir" class="quote-banner">
+      <div class="container quote-banner-inner">
+        <div class="quote-step">
+          <span class="step-num">1</span>
+          <span>Elige tus sabores y cantidades</span>
+        </div>
+        <div class="quote-step">
+          <span class="step-num">2</span>
+          <span>Agrega notas (caja regalo, evento o zona)</span>
+        </div>
+        <div class="quote-step">
+          <span class="step-num">3</span>
+          <span>Recibe tu cotización al instante por WhatsApp</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DE CATÁLOGO INTERACTIVO CON BUSCADOR Y FILTROS -->
+    <section id="catalogo" aria-labelledby="catalog-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="catalog-heading">Nuestros 3 Brownies Más Famosos</h2>
+          <p>
+            Cada brownie está elaborado con base húmeda de chocolate intenso y generoso dulce de leche. Filtra por ingrediente o busca tu favorito y agrégalo a tu cotización.
+          </p>
+        </div>
+
+        <!-- CONTROLES DE BÚSQUEDA EN TIEMPO REAL Y SEGMENTACIÓN -->
+        <div class="catalog-controls" role="region" aria-label="Buscador y filtros de sabores">
+          <div class="search-wrapper">
+            <label for="searchInput" class="sr-only">Buscar brownie por nombre o ingrediente</label>
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2.2"/>
+              <path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            <input
+              type="search"
+              id="searchInput"
+              class="search-input"
+              placeholder="Buscar sabor o ingrediente (ej. Oreo, frutilla, M&M)..."
+              autocomplete="off">
+          </div>
+
+          <div id="filterGroup" class="filter-group" role="group" aria-label="Filtrar por categoría">
+            <button type="button" class="filter-pill" data-category="todos" aria-pressed="true">Todos (3)</button>
+            <button type="button" class="filter-pill" data-category="galleta" aria-pressed="false">Con Galleta</button>
+            <button type="button" class="filter-pill" data-category="frutal" aria-pressed="false">Frutales</button>
+            <button type="button" class="filter-pill" data-category="confites" aria-pressed="false">Con M&amp;M</button>
+          </div>
+        </div>
+
+        <!-- GRILLA DE PRODUCTOS RENDERIZADA CON DOM SEGURO (ANTI-XSS) -->
+        <div id="catalogGrid" class="catalog-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- INFORMACIÓN LOCAL Y COBERTURA EN SANTA CRUZ DE LA SIERRA -->
+    <section id="ubicacion" class="local-section" aria-labelledby="local-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="local-heading">Atención Directa en Santa Cruz de la Sierra</h2>
+          <p>
+            Preparamos tus brownies frescos bajo pedido para antojos personales, regalos especiales, reuniones y eventos en toda la ciudad.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <div class="info-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Cobertura Local</h3>
+            <p>Entregas coordinadas y recojo en <strong>Santa Cruz de la Sierra, Bolivia</strong>. Indica tu zona al enviar tu cotización.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 7V5C16 3.89543 15.1046 3 14 3H10C8.89543 3 8 3.89543 8 5V7" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Pedidos Personales y Cajas</h3>
+            <p>Cotizamos desde porciones individuales hasta cajas surtidas con Moka Oreo, MokaFresa y Moka Chips para compartir.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>WhatsApp Directo</h3>
+            <p>Atención personalizada al <strong>+591 75747906</strong> para confirmar precios vigentes, disponibilidad del día y horario de entrega.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">MokaBrownies</div>
+        <p class="footer-meta">Brownies artesanales • Santa Cruz de la Sierra, Bolivia</p>
+      </div>
+      <p class="footer-meta">Pedidos y cotizaciones vía WhatsApp: +591 75747906</p>
+    </div>
+  </footer>
+
+  <!-- BACKDROP Y PANEL DESPLEGABLE DE COTIZACIÓN (SLIDE-OVER CART DRAWER) -->
+  <div id="cartBackdrop" class="cart-backdrop" aria-hidden="true"></div>
+
+  <aside
+    id="cartDrawer"
+    class="cart-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="drawerTitle"
+    aria-hidden="true">
+    <div class="drawer-header">
+      <div>
+        <h2 id="drawerTitle" style="font-size: 1.25rem;">Tu Lista de Cotización</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">MokaBrownies • Santa Cruz</p>
+      </div>
+      <button
+        type="button"
+        id="closeCartBtn"
+        class="btn btn-outline btn-icon"
+        aria-label="Cerrar panel de cotización">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <div id="cartItemsList" aria-live="polite"></div>
+
+      <div id="quoteNoteWrapper" class="drawer-note-box" hidden>
+        <label for="customerNoteInput">Nota opcional para tu cotización (zona, fecha o presentación):</label>
+        <textarea
+          id="customerNoteInput"
+          class="drawer-note-input"
+          maxlength="240"
+          placeholder="Ej. Para regalo de cumpleaños este viernes, entrega en zona Norte..."></textarea>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="summary-row">
+        <span>Total de unidades seleccionadas:</span>
+        <span id="drawerTotalUnits">0 brownies</span>
+      </div>
+      <p class="summary-note">
+        Modalidad: <strong>Cotización sin compromiso</strong>. Al presionar el botón, abriremos WhatsApp con tu detalle listo para enviarte el precio exacto.
+      </p>
+      <a
+        id="sendWhatsAppQuoteBtn"
+        href="https://wa.me/59175747906"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-whatsapp"
+        aria-disabled="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Solicitar Cotización por WhatsApp</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- REGIÓN TOAST ACCESIBLE PARA FEEDBACK INMEDIATO -->
+  <div id="toastRegion" class="toast-region" role="status" aria-live="polite"></div>
+
+  <script>
+    /* ==========================================================================
+       ARQUITECTURA JS VANILLA SEGURA (PREVENCIÓN ESTRICTA DOM-XSS OWASP)
+       - Cero uso de innerHTML / outerHTML / document.write
+       - Construcción programática de nodos DOM y SVG mediante createElement / createElementNS
+       - Persistencia segura en localStorage y sanitización estricta de enlaces wa.me
+       ========================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      'use strict';
+
+      // Configuración verificada del negocio
+      const BUSINESS_CONFIG = Object.freeze({
+        name: 'MokaBrownies',
+        whatsappPhone: '59175747906', // Bolivia (+591) 75747906
+        city: 'Santa Cruz de la Sierra, Bolivia',
+        storageKey: 'mokabrownies_quote_cart_v1'
+      });
+
+      // Catálogo verificado con los 3 sabores estrella proporcionados
+      const PRODUCTS = Object.freeze([
+        {
+          id: 'moka-oreo',
+          name: 'Moka Oreo',
+          badge: 'Top Ventas #1',
+          category: 'galleta',
+          description: 'Brownie artesanal de chocolate húmedo con corazón y cobertura de dulce de leche, chispas de chocolate y trozos crujientes de galleta Oreo.',
+          ingredients: ['Brownie de chocolate', 'Dulce de leche', 'Chispas de chocolate', 'Galleta Oreo'],
+          artType: 'oreo'
+        },
+        {
+          id: 'moka-fresa',
+          name: 'MokaFresa',
+          badge: 'Favorito Frutal',
+          category: 'frutal',
+          description: 'Irresistible brownie de chocolate intenso con dulce de leche cremoso, chispas de chocolate y frutillas frescas seleccionadas.',
+          ingredients: ['Brownie de chocolate', 'Dulce de leche', 'Chispas de chocolate', 'Frutilla fresca'],
+          artType: 'fresa'
+        },
+        {
+          id: 'moka-chips',
+          name: 'Moka Chips',
+          badge: 'Explosión de Color',
+          category: 'confites',
+          description: 'Brownie de chocolate extra chocolatosos con abundante dulce de leche, chispas de chocolate y coloridas chispas M&M.',
+          ingredients: ['Brownie de chocolate', 'Dulce de leche', 'Chispas de chocolate', 'Chispas M&M'],
+          artType: 'chips'
+        }
+      ]);
+
+      // Estado reactivo de la aplicación
+      let state = {
+        searchQuery: '',
+        activeCategory: 'todos',
+        cart: loadCartFromStorage(),
+        customerNote: ''
+      };
+
+      // Referencias DOM
+      const catalogGrid = document.getElementById('catalogGrid');
+      const searchInput = document.getElementById('searchInput');
+      const filterGroup = document.getElementById('filterGroup');
+      const openCartBtn = document.getElementById('openCartBtn');
+      const closeCartBtn = document.getElementById('closeCartBtn');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartBackdrop = document.getElementById('cartBackdrop');
+      const headerCartCount = document.getElementById('headerCartCount');
+      const cartItemsList = document.getElementById('cartItemsList');
+      const drawerTotalUnits = document.getElementById('drawerTotalUnits');
+      const sendWhatsAppQuoteBtn = document.getElementById('sendWhatsAppQuoteBtn');
+      const quoteNoteWrapper = document.getElementById('quoteNoteWrapper');
+      const customerNoteInput = document.getElementById('customerNoteInput');
+      const toastRegion = document.getElementById('toastRegion');
+
+      let toastTimer = null;
+
+      /* ------------------------------------------------------------------------
+         1. PERSISTENCIA SEGURA EN LOCALSTORAGE
+         ------------------------------------------------------------------------ */
+      function loadCartFromStorage() {
+        try {
+          const raw = window.localStorage.getItem(BUSINESS_CONFIG.storageKey);
+          if (!raw) return {};
+          const parsed = JSON.parse(raw);
+          if (typeof parsed !== 'object' || parsed === null) return {};
+
+          // Validar que solo existan IDs reales del catálogo y cantidades enteras positivas
+          const validIds = new Set(PRODUCTS.map(p => p.id));
+          const sanitizedCart = {};
+          Object.keys(parsed).forEach(key => {
+            const qty = Number(parsed[key]);
+            if (validIds.has(key) && Number.isInteger(qty) && qty > 0 && qty <= 500) {
+              sanitizedCart[key] = qty;
+            }
+          });
+          return sanitizedCart;
+        } catch (err) {
+          return {};
+        }
+      }
+
+      function saveCartToStorage() {
+        try {
+          window.localStorage.setItem(BUSINESS_CONFIG.storageKey, JSON.stringify(state.cart));
+        } catch (err) {
+          // Silencioso en navegación privada con cuota restringida
+        }
+      }
+
+      /* ------------------------------------------------------------------------
+         2. GENERADOR DE ILUSTRACIONES SVG VECTORIALES SIN INNERHTML
+         ------------------------------------------------------------------------ */
+      function createSvgElement(tag, attrs) {
+        const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, String(v)));
+        return el;
+      }
+
+      function buildProductSvg(artType, label) {
+        const svg = createSvgElement('svg', {
+          viewBox: '0 0 260 170',
+          width: '260',
+          height: '170',
+          role: 'img',
+          'aria-label': label
+        });
+
+        // Sombra suave bajo el brownie
+        svg.appendChild(createSvgElement('ellipse', {
+          cx: 130, cy: 148, rx: 86, ry: 14, fill: '#D97706', 'fill-opacity': '0.2'
+        }));
+
+        // Bloque principal de brownie de chocolate
+        svg.appendChild(createSvgElement('rect', {
+          x: 52, y: 42, width: 156, height: 100, rx: 16, fill: '#451A03'
+        }));
+        svg.appendChild(createSvgElement('rect', {
+          x: 52, y: 36, width: 156, height: 96, rx: 16, fill: '#5C2D16'
+        }));
+
+        // Capa ondeada de dulce de leche
+        svg.appendChild(createSvgElement('path', {
+          d: 'M52 58C74 76 96 48 118 66C140 84 162 50 184 68C194 76 202 66 208 58V36C208 27 201 20 192 20H68C59 20 52 27 52 36V58Z',
+          fill: '#D97706'
+        }));
+
+        // Chispas de chocolate comunes a los 3 sabores
+        const chocoChips = [
+          { cx: 82, cy: 96, r: 7 },
+          { cx: 134, cy: 108, r: 8 },
+          { cx: 178, cy: 92, r: 6.5 },
+          { cx: 108, cy: 84, r: 5.5 }
+        ];
+        chocoChips.forEach(chip => {
+          svg.appendChild(createSvgElement('circle', {
+            cx: chip.cx, cy: chip.cy, r: chip.r, fill: '#1C1917'
+          }));
+        });
+
+        // Toppings específicos según sabor
+        if (artType === 'oreo') {
+          // Galleta Oreo izquierda
+          svg.appendChild(createSvgElement('circle', { cx: 102, cy: 30, r: 22, fill: '#1C1917' }));
+          svg.appendChild(createSvgElement('circle', {
+            cx: 102, cy: 30, r: 16, fill: 'none', stroke: '#78716C', 'stroke-width': '2', 'stroke-dasharray': '3 3'
+          }));
+          // Media galleta Oreo derecha con crema
+          svg.appendChild(createSvgElement('circle', { cx: 158, cy: 34, r: 20, fill: '#1C1917' }));
+          svg.appendChild(createSvgElement('circle', { cx: 158, cy: 34, r: 13, fill: '#F5F5F4' }));
+          svg.appendChild(createSvgElement('circle', { cx: 158, cy: 34, r: 8, fill: '#292524' }));
+        } else if (artType === 'fresa') {
+          // Frutilla 1
+          svg.appendChild(createSvgElement('path', {
+            d: 'M102 10C118 10 126 28 102 48C78 28 86 10 102 10Z', fill: '#DC2626'
+          }));
+          svg.appendChild(createSvgElement('path', {
+            d: 'M90 12L102 18L114 12L108 5L102 10L96 5L90 12Z', fill: '#15803D'
+          }));
+          svg.appendChild(createSvgElement('circle', { cx: 98, cy: 25, r: 1.5, fill: '#FDE68A' }));
+          svg.appendChild(createSvgElement('circle', { cx: 106, cy: 28, r: 1.5, fill: '#FDE68A' }));
+
+          // Frutilla 2
+          svg.appendChild(createSvgElement('path', {
+            d: 'M158 14C173 14 180 31 158 50C136 31 143 14 158 14Z', fill: '#B91C1C'
+          }));
+          svg.appendChild(createSvgElement('path', {
+            d: 'M147 16L158 21L169 16L163 9L158 14L153 9L147 16Z', fill: '#16A34A'
+          }));
+          svg.appendChild(createSvgElement('circle', { cx: 155, cy: 29, r: 1.5, fill: '#FDE68A' }));
+          svg.appendChild(createSvgElement('circle', { cx: 162, cy: 33, r: 1.5, fill: '#FDE68A' }));
+        } else if (artType === 'chips') {
+          // Chispas M&M multicolores
+          const mms = [
+            { cx: 88, cy: 26, fill: '#EF4444' },
+            { cx: 120, cy: 22, fill: '#EAB308' },
+            { cx: 152, cy: 25, fill: '#2563EB' },
+            { cx: 178, cy: 32, fill: '#16A34A' },
+            { cx: 106, cy: 36, fill: '#F97316' },
+            { cx: 140, cy: 38, fill: '#DC2626' }
+          ];
+          mms.forEach(mm => {
+            svg.appendChild(createSvgElement('ellipse', {
+              cx: mm.cx, cy: mm.cy, rx: 10, ry: 6.5, fill: mm.fill
+            }));
+          });
+        }
+
+        return svg;
+      }
+
+      /* ------------------------------------------------------------------------
+         3. RENDERIZADO SEGURO DEL CATÁLOGO CON FILTRADO EN TIEMPO REAL
+         ------------------------------------------------------------------------ */
+      function normalizeText(str) {
+        return str
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+      }
+
+      function renderCatalog() {
+        // Limpiar contenedor de forma segura
+        while (catalogGrid.firstChild) {
+          catalogGrid.removeChild(catalogGrid.firstChild);
+        }
+
+        const queryNorm = normalizeText(state.searchQuery.trim());
+
+        const filteredProducts = PRODUCTS.filter(product => {
+          const matchesCategory = state.activeCategory === 'todos' || product.category === state.activeCategory;
+          if (!matchesCategory) return false;
+          if (!queryNorm) return true;
+
+          const haystack = normalizeText(
+            `${product.name} ${product.description} ${product.ingredients.join(' ')}`
+          );
+          return haystack.includes(queryNorm);
+        });
+
+        if (filteredProducts.length === 0) {
+          const emptyDiv = document.createElement('div');
+          emptyDiv.className = 'empty-state';
+
+          const emptyTitle = document.createElement('h3');
+          emptyTitle.textContent = 'No encontramos brownies con esa búsqueda';
+
+          const emptyText = document.createElement('p');
+          emptyText.style.marginBlock = '0.6rem 1.2rem';
+          emptyText.style.color = 'var(--text-muted)';
+          emptyText.textContent = 'Prueba buscando "Oreo", "Frutilla", "M&M" o restablece los filtros para ver los 3 sabores famosos.';
+
+          const resetBtn = document.createElement('button');
+          resetBtn.type = 'button';
+          resetBtn.className = 'btn btn-primary';
+          resetBtn.textContent = 'Ver Todos los Sabores';
+          resetBtn.addEventListener('click', () => {
+            state.searchQuery = '';
+            state.activeCategory = 'todos';
+            searchInput.value = '';
+            updateFilterButtonsUI();
+            renderCatalog();
+          });
+
+          emptyDiv.appendChild(emptyTitle);
+          emptyDiv.appendChild(emptyText);
+          emptyDiv.appendChild(resetBtn);
+          catalogGrid.appendChild(emptyDiv);
+          return;
+        }
+
+        filteredProducts.forEach(product => {
+          const cardContainer = document.createElement('div');
+          cardContainer.className = 'card-container';
+
+          const article = document.createElement('article');
+          article.className = 'product-card';
+
+          // Zona multimedia SVG
+          const mediaDiv = document.createElement('div');
+          mediaDiv.className = 'product-media';
+
+          const badgeSpan = document.createElement('span');
+          badgeSpan.className = 'product-tag';
+          badgeSpan.textContent = product.badge;
+
+          mediaDiv.appendChild(badgeSpan);
+          mediaDiv.appendChild(buildProductSvg(product.artType, `Ilustración de ${product.name}`));
+
+          // Cuerpo de tarjeta
+          const bodyDiv = document.createElement('div');
+          bodyDiv.className = 'product-body';
+
+          const topInfo = document.createElement('div');
+
+          const titleRow = document.createElement('div');
+          titleRow.className = 'product-title-row';
+
+          const titleEl = document.createElement('h3');
+          titleEl.textContent = product.name;
+
+          const quotePill = document.createElement('span');
+          quotePill.className = 'quote-mode-pill';
+          quotePill.textContent = 'A cotizar';
+
+          titleRow.appendChild(titleEl);
+          titleRow.appendChild(quotePill);
+
+          const descEl = document.createElement('p');
+          descEl.className = 'product-desc';
+          descEl.textContent = product.description;
+
+          const ingList = document.createElement('ul');
+          ingList.className = 'ingredients-list';
+          ingList.setAttribute('aria-label', `Ingredientes de ${product.name}`);
+
+          product.ingredients.forEach(ing => {
+            const li = document.createElement('li');
+            li.className = 'ingredient-chip';
+            li.textContent = ing;
+            ingList.appendChild(li);
+          });
+
+          topInfo.appendChild(titleRow);
+          topInfo.appendChild(descEl);
+          topInfo.appendChild(ingList);
+
+          // Botón de acción contextual según cantidad actual en cotización
+          const footerDiv = document.createElement('div');
+          footerDiv.className = 'product-footer';
+
+          const currentQty = state.cart[product.id] || 0;
+          const addBtn = document.createElement('button');
+          addBtn.type = 'button';
+          addBtn.className = currentQty > 0 ? 'btn btn-primary' : 'btn btn-accent';
+          addBtn.dataset.action = 'add-product';
+          addBtn.dataset.productId = product.id;
+          addBtn.textContent = currentQty > 0
+            ? `Añadir otro (${currentQty} en cotización)`
+            : 'Añadir a Cotización';
+
+          footerDiv.appendChild(addBtn);
+
+          bodyDiv.appendChild(topInfo);
+          bodyDiv.appendChild(footerDiv);
+
+          article.appendChild(mediaDiv);
+          article.appendChild(bodyDiv);
+          cardContainer.appendChild(article);
+          catalogGrid.appendChild(cardContainer);
+        });
+      }
+
+      /* ------------------------------------------------------------------------
+         4. GESTIÓN DEL CARRITO DE COTIZACIÓN Y GENERACIÓN DE URL WHATSAPP
+         ------------------------------------------------------------------------ */
+      function getTotalUnits() {
+        return Object.values(state.cart).reduce((acc, qty) => acc + qty, 0);
+      }
+
+      function buildSafeWhatsAppUrl() {
+        const baseUrl = `https://wa.me/${BUSINESS_CONFIG.whatsappPhone}`;
+        const entries = Object.entries(state.cart);
+
+        if (entries.length === 0) {
+          const fallbackMsg = `Hola ${BUSINESS_CONFIG.name}, quisiera solicitar una cotización de sus brownies en ${BUSINESS_CONFIG.city}.`;
+          return `${baseUrl}?text=${encodeURIComponent(fallbackMsg)}`;
+        }
+
+        const lines = [
+          `Hola *${BUSINESS_CONFIG.name}*! 👋`,
+          `Quisiera solicitar una *cotización* para los siguientes brownies en *${BUSINESS_CONFIG.city}*:`,
+          ''
+        ];
+
+        entries.forEach(([productId, qty]) => {
+          const prod = PRODUCTS.find(p => p.id === productId);
+          if (prod) {
+            lines.push(`• *${qty}x ${prod.name}* (${prod.ingredients.join(', ')})`);
+          }
+        });
+
+        lines.push('');
+        lines.push(`*Total de unidades:* ${getTotalUnits()} brownie(s)`);
+
+        const cleanNote = state.customerNote.trim();
+        if (cleanNote) {
+          lines.push(`*Nota / Detalle adicional:* ${cleanNote}`);
+        }
+
+        lines.push('');
+        lines.push('¿Me podrían confirmar el precio total y disponibilidad? ¡Muchas gracias!');
+
+        const finalUrl = `${baseUrl}?text=${encodeURIComponent(lines.join('\n'))}`;
+
+        // Verificación estricta de esquema OWASP
+        if (!finalUrl.startsWith('https://wa.me/')) {
+          return 'https://wa.me/59175747906';
+        }
+        return finalUrl;
+      }
+
+      function renderCartDrawer() {
+        const totalUnits = getTotalUnits();
+        headerCartCount.textContent = String(totalUnits);
+        drawerTotalUnits.textContent = `${totalUnits} ${totalUnits === 1 ? 'brownie' : 'brownies'}`;
+
+        while (cartItemsList.firstChild) {
+          cartItemsList.removeChild(cartItemsList.firstChild);
+        }
+
+        const entries = Object.entries(state.cart);
+
+        if (entries.length === 0) {
+          quoteNoteWrapper.hidden = true;
+          sendWhatsAppQuoteBtn.setAttribute('aria-disabled', 'true');
+          sendWhatsAppQuoteBtn.href = buildSafeWhatsAppUrl();
+
+          const emptyBox = document.createElement('div');
+          emptyBox.style.textAlign = 'center';
+          emptyBox.style.padding = '2rem 1rem';
+          emptyBox.style.color = 'var(--text-muted)';
+
+          const emptyP = document.createElement('p');
+          emptyP.style.fontWeight = '700';
+          emptyP.style.color = 'var(--text)';
+          emptyP.style.marginBlockEnd = '0.4rem';
+          emptyP.textContent = 'Tu lista de cotización está vacía';
+
+          const emptySub = document.createElement('p');
+          emptySub.style.fontSize = '0.92rem';
+          emptySub.textContent = 'Selecciona tus brownies favoritos del catálogo (Moka Oreo, MokaFresa o Moka Chips) para armar tu pedido.';
+
+          emptyBox.appendChild(emptyP);
+          emptyBox.appendChild(emptySub);
+          cartItemsList.appendChild(emptyBox);
+          return;
+        }
+
+        quoteNoteWrapper.hidden = false;
+        sendWhatsAppQuoteBtn.setAttribute('aria-disabled', 'false');
+        sendWhatsAppQuoteBtn.href = buildSafeWhatsAppUrl();
+
+        entries.forEach(([productId, qty]) => {
+          const product = PRODUCTS.find(p => p.id === productId);
+          if (!product) return;
+
+          const itemCard = document.createElement('div');
+          itemCard.className = 'cart-item';
+
+          const topRow = document.createElement('div');
+          topRow.className = 'cart-item-top';
+
+          const infoDiv = document.createElement('div');
+          const nameEl = document.createElement('div');
+          nameEl.className = 'cart-item-title';
+          nameEl.textContent = product.name;
+
+          const subEl = document.createElement('div');
+          subEl.className = 'cart-item-sub';
+          subEl.textContent = product.ingredients.join(' • ');
+
+          infoDiv.appendChild(nameEl);
+          infoDiv.appendChild(subEl);
+
+          const statusTag = document.createElement('span');
+          statusTag.className = 'quote-mode-pill';
+          statusTag.textContent = 'A cotizar';
+
+          topRow.appendChild(infoDiv);
+          topRow.appendChild(statusTag);
+
+          // Controles táctiles de cantidad (+ / - / Eliminar)
+          const controlsRow = document.createElement('div');
+          controlsRow.className = 'cart-item-controls';
+
+          const stepper = document.createElement('div');
+          stepper.className = 'qty-stepper';
+
+          const decBtn = document.createElement('button');
+          decBtn.type = 'button';
+          decBtn.className = 'qty-btn';
+          decBtn.dataset.cartAction = 'decrease';
+          decBtn.dataset.productId = product.id;
+          decBtn.setAttribute('aria-label', `Disminuir cantidad de ${product.name}`);
+          decBtn.textContent = '−';
+
+          const qtySpan = document.createElement('span');
+          qtySpan.className = 'qty-value';
+          qtySpan.textContent = String(qty);
+
+          const incBtn = document.createElement('button');
+          incBtn.type = 'button';
+          incBtn.className = 'qty-btn';
+          incBtn.dataset.cartAction = 'increase';
+          incBtn.dataset.productId = product.id;
+          incBtn.setAttribute('aria-label', `Aumentar cantidad de ${product.name}`);
+          incBtn.textContent = '+';
+
+          stepper.appendChild(decBtn);
+          stepper.appendChild(qtySpan);
+          stepper.appendChild(incBtn);
+
+          const delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'remove-btn';
+          delBtn.dataset.cartAction = 'remove';
+          delBtn.dataset.productId = product.id;
+          delBtn.setAttribute('aria-label', `Eliminar ${product.name} de la cotización`);
+          delBtn.textContent = 'Eliminar';
+
+          controlsRow.appendChild(stepper);
+          controlsRow.appendChild(delBtn);
+
+          itemCard.appendChild(topRow);
+          itemCard.appendChild(controlsRow);
+          cartItemsList.appendChild(itemCard);
+        });
+      }
+
+      /* ------------------------------------------------------------------------
+         5. MUTACIONES DE ESTADO Y NOTIFICACIONES ACCESIBLES
+         ------------------------------------------------------------------------ */
+      function showToast(message) {
+        toastRegion.textContent = message;
+        toastRegion.classList.add('visible');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastRegion.classList.remove('visible');
+        }, 2600);
+      }
+
+      function addProductToCart(productId) {
+        const product = PRODUCTS.find(p => p.id === productId);
+        if (!product) return;
+
+        state.cart[productId] = (state.cart[productId] || 0) + 1;
+        saveCartToStorage();
+        renderCatalog();
+        renderCartDrawer();
+        showToast(`${product.name} añadido a tu cotización (${state.cart[productId]} uds.)`);
+      }
+
+      function updateProductQuantity(productId, delta) {
+        const current = state.cart[productId] || 0;
+        const next = current + delta;
+
+        if (next <= 0) {
+          delete state.cart[productId];
+        } else if (next <= 500) {
+          state.cart[productId] = next;
+        }
+
+        saveCartToStorage();
+        renderCatalog();
+        renderCartDrawer();
+      }
+
+      function removeProductFromCart(productId) {
+        const product = PRODUCTS.find(p => p.id === productId);
+        delete state.cart[productId];
+        saveCartToStorage();
+        renderCatalog();
+        renderCartDrawer();
+        if (product) {
+          showToast(`${product.name} eliminado de la lista`);
+        }
+      }
+
+      /* ------------------------------------------------------------------------
+         6. APERTURA Y CIERRE ACCESIBLE DEL PANEL LATERAL (DRAWER)
+         ------------------------------------------------------------------------ */
+      function openDrawer() {
+        cartDrawer.classList.add('active');
+        cartBackdrop.classList.add('active');
+        cartDrawer.setAttribute('aria-hidden', 'false');
+        cartBackdrop.setAttribute('aria-hidden', 'false');
+        openCartBtn.setAttribute('aria-expanded', 'true');
+        closeCartBtn.focus();
+      }
+
+      function closeDrawer() {
+        cartDrawer.classList.remove('active');
+        cartBackdrop.classList.remove('active');
+        cartDrawer.setAttribute('aria-hidden', 'true');
+        cartBackdrop.setAttribute('aria-hidden', 'true');
+        openCartBtn.setAttribute('aria-expanded', 'false');
+        openCartBtn.focus();
+      }
+
+      function updateFilterButtonsUI() {
+        const pills = filterGroup.querySelectorAll('.filter-pill');
+        pills.forEach(pill => {
+          const isMatch = pill.dataset.category === state.activeCategory;
+          pill.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+        });
+      }
+
+      /* ------------------------------------------------------------------------
+         7. DELEGACIÓN DE EVENTOS (OPTIMIZACIÓN INP <= 200ms)
+         ------------------------------------------------------------------------ */
+      searchInput.addEventListener('input', event => {
+        state.searchQuery = event.target.value;
+        renderCatalog();
+      });
+
+      filterGroup.addEventListener('click', event => {
+        const btn = event.target.closest('.filter-pill');
+        if (!btn) return;
+        state.activeCategory = btn.dataset.category || 'todos';
+        updateFilterButtonsUI();
+        renderCatalog();
+      });
+
+      catalogGrid.addEventListener('click', event => {
+        const btn = event.target.closest('[data-action="add-product"]');
+        if (!btn) return;
+        addProductToCart(btn.dataset.productId);
+      });
+
+      cartItemsList.addEventListener('click', event => {
+        const btn = event.target.closest('[data-cart-action]');
+        if (!btn) return;
+        const action = btn.dataset.cartAction;
+        const productId = btn.dataset.productId;
+
+        if (action === 'increase') {
+          updateProductQuantity(productId, 1);
+        } else if (action === 'decrease') {
+          updateProductQuantity(productId, -1);
+        } else if (action === 'remove') {
+          removeProductFromCart(productId);
+        }
+      });
+
+      customerNoteInput.addEventListener('input', event => {
+        state.customerNote = event.target.value;
+        sendWhatsAppQuoteBtn.href = buildSafeWhatsAppUrl();
+      });
+
+      sendWhatsAppQuoteBtn.addEventListener('click', event => {
+        if (getTotalUnits() === 0) {
+          event.preventDefault();
+          showToast('Agrega al menos un brownie antes de enviar tu cotización');
+        }
+      });
+
+      openCartBtn.addEventListener('click', openDrawer);
+      closeCartBtn.addEventListener('click', closeDrawer);
+      cartBackdrop.addEventListener('click', closeDrawer);
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && cartDrawer.classList.contains('active')) {
+          closeDrawer();
+        }
+      });
+
+      // Inicialización inicial
+      renderCatalog();
+      renderCartDrawer();
+    });
+  </script>
+</body>
+</html>
